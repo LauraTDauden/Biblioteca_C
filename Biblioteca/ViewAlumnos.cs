@@ -41,10 +41,18 @@ namespace Biblioteca
 
         private void Listar(object sender, EventArgs e)
         {
-            //MessageBox.Show("¡LISTAR!");
-            query = new Queries("SELECT * FROM alumnos", con.Con);
+            if (string.IsNullOrWhiteSpace(textBox_buscar.Text))
+            {
+                query = new Queries("SELECT * FROM alumnos", con.Con);
+            }
+            else
+            {
+                query = new Queries("SELECT * FROM alumnos WHERE dni LIKE '" + textBox_buscar.Text + "%'"
+                    + "OR nombre LIKE '" + textBox_buscar.Text + "%'"
+                    + "OR apellido1 LIKE '" + textBox_buscar.Text + "%'"
+                    + "OR apellido2 LIKE '" + textBox_buscar.Text + "%'", con.Con);
+            }           
             new Table(query.Command, dataGrid);
-
         }
     }
 }

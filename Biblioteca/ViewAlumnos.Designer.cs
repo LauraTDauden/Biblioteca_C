@@ -51,6 +51,7 @@ namespace Biblioteca
             // 
             // dataGrid
             // 
+            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGrid.Location = new System.Drawing.Point(10, 197);
             this.dataGrid.Name = "dataGrid";
