@@ -22,6 +22,7 @@ namespace Biblioteca
             button_Baja.Click += new System.EventHandler(this.Baja);
             button_Modificar.Click += new System.EventHandler(this.Modificar);
             button_Listar.Click += new System.EventHandler(this.Listar);
+            textBox_buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Buscar);
         }
 
         private void Alta(object sender, EventArgs e)
@@ -47,11 +48,22 @@ namespace Biblioteca
             }
             else
             {
-                query = new Queries("SELECT * FROM alumnos WHERE dni LIKE '" + textBox_buscar.Text + "%'"
-                    + "OR nombre LIKE '" + textBox_buscar.Text + "%'"
-                    + "OR apellido1 LIKE '" + textBox_buscar.Text + "%'"
-                    + "OR apellido2 LIKE '" + textBox_buscar.Text + "%'", con.Con);
+                String texto = textBox_buscar.Text.Trim();
+                query = new Queries("SELECT * FROM alumnos WHERE dni LIKE '" + texto + "%'"
+                    + "OR nombre LIKE '" + texto + "%'"
+                    + "OR apellido1 LIKE '" + texto + "%'"
+                    + "OR apellido2 LIKE '" + texto + "%'", con.Con);
             }           
+            new Table(query.Command, dataGrid);
+        }
+
+        private void Buscar(object sender, EventArgs e)
+        {           
+                String texto = textBox_buscar.Text.Trim();
+                query = new Queries("SELECT * FROM alumnos WHERE dni LIKE '" + texto + "%'"
+                    + "OR nombre LIKE '" + texto + "%'"
+                    + "OR apellido1 LIKE '" + texto + "%'"
+                    + "OR apellido2 LIKE '" + texto + "%'", con.Con);            
             new Table(query.Command, dataGrid);
         }
     }
