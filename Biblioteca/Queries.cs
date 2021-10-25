@@ -9,13 +9,27 @@ namespace Biblioteca
 {
     class Queries
     {
-        //string consulta = "SELECT * FROM alumnos";
         MySqlCommand command;
-        public Queries(String consulta, MySqlConnection con)
+        public Queries()
         {
-            Command = new MySqlCommand(consulta, con);
+
         }
 
         public MySqlCommand Command { get => command; set => command = value; }
+
+        public void readData(String sql, MySqlConnection con)
+        {
+            Command = new MySqlCommand(sql, con);           
+        }
+
+        public void updateData(String sql, MySqlConnection con)
+        {
+            command = new MySqlCommand(sql, con);
+            MySqlDataReader reader = command.ExecuteReader();
+            reader.Close();
+        }        
+
+        }
     }
-}
+
+
