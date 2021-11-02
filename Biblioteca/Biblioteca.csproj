@@ -90,6 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connect.cs" />
+    <Compile Include="dto\Alumno.cs" />
+    <Compile Include="dto\Libro.cs" />
+    <Compile Include="dto\Usuario.cs" />
     <Compile Include="Queries.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="ViewAlumnos.cs">

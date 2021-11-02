@@ -45,12 +45,12 @@ namespace Biblioteca
             query = new Queries();
             if (string.IsNullOrWhiteSpace(textBox_buscar.Text))
             {
-                query.readData("SELECT * FROM alumnos", con.Con);
+                query.createCommand("SELECT * FROM alumnos", con.Con);
             }
             else
             {
                 String texto = textBox_buscar.Text.Trim();
-                query.readData("SELECT * FROM alumnos WHERE dni LIKE '" + texto + "%'"
+                query.createCommand("SELECT * FROM alumnos WHERE dni LIKE '" + texto + "%'"
                     + "OR nombre LIKE '" + texto + "%'"
                     + "OR apellido1 LIKE '" + texto + "%'"
                     + "OR apellido2 LIKE '" + texto + "%'", con.Con);
@@ -62,7 +62,7 @@ namespace Biblioteca
         {
             query = new Queries();
             String texto = textBox_buscar.Text.Trim();
-            query.readData("SELECT * FROM alumnos WHERE dni LIKE '" + texto + "%'"
+            query.createCommand("SELECT * FROM alumnos WHERE dni LIKE '" + texto + "%'"
                     + "OR nombre LIKE '" + texto + "%'"
                     + "OR apellido1 LIKE '" + texto + "%'"
                     + "OR apellido2 LIKE '" + texto + "%'", con.Con);
