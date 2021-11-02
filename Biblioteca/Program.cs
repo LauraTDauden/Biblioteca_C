@@ -20,8 +20,9 @@ namespace Biblioteca
             //con = new Connect();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ViewAlumnos());
-            
+            //Application.Run(new ViewAlumnos());
+            Application.Run(new VistaLogin());
+
         }
     }
 }

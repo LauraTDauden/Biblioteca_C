@@ -11,16 +11,16 @@ namespace Biblioteca
 {
     class Connect
     {
-        string connectionString = "datasource = localhost; database = dad_biblioteca; port = 3306; username = root; password = admin1234";      
+        string connectionString = "datasource = localhost; database = dad_biblioteca; port = 3306; username = root; password = admin1234";
         MySqlConnection con;
         public Connect()
-        {           
+        {
             try
             {
-                Con = new MySqlConnection(connectionString);               
+                Con = new MySqlConnection(connectionString);
                 Con.Open();
                 MessageBox.Show("Conectado");
-               
+
             }
             catch (Exception ex)
             {

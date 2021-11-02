@@ -19,7 +19,7 @@ namespace Biblioteca
 
         public void readData(String sql, MySqlConnection con)
         {
-            Command = new MySqlCommand(sql, con);           
+            Command = new MySqlCommand(sql, con);
         }
 
         public void updateData(String sql, MySqlConnection con)
@@ -27,9 +27,9 @@ namespace Biblioteca
             command = new MySqlCommand(sql, con);
             MySqlDataReader reader = command.ExecuteReader();
             reader.Close();
-        }        
-
         }
+
     }
+}
 
 

@@ -44,7 +44,7 @@ namespace Biblioteca
         {
             query = new Queries();
             if (string.IsNullOrWhiteSpace(textBox_buscar.Text))
-            {               
+            {
                 query.readData("SELECT * FROM alumnos", con.Con);
             }
             else
@@ -54,7 +54,7 @@ namespace Biblioteca
                     + "OR nombre LIKE '" + texto + "%'"
                     + "OR apellido1 LIKE '" + texto + "%'"
                     + "OR apellido2 LIKE '" + texto + "%'", con.Con);
-            }           
+            }
             new Table(query.Command, dataGrid);
         }
 
@@ -65,7 +65,7 @@ namespace Biblioteca
             query.readData("SELECT * FROM alumnos WHERE dni LIKE '" + texto + "%'"
                     + "OR nombre LIKE '" + texto + "%'"
                     + "OR apellido1 LIKE '" + texto + "%'"
-                    + "OR apellido2 LIKE '" + texto + "%'", con.Con);            
+                    + "OR apellido2 LIKE '" + texto + "%'", con.Con);
             new Table(query.Command, dataGrid);
         }
     }
