@@ -14,6 +14,7 @@ namespace Biblioteca
             con = new Connect();
             InitializeComponent();
             button_login.Click += new System.EventHandler(this.login);
+            button_salir.Click += new System.EventHandler(this.salir);
         }
 
         private void login(object sender, EventArgs e)
@@ -24,9 +25,9 @@ namespace Biblioteca
                 
                 //PARA OCULTAR UNA VISTA Y MOSTRAR OTRA NUEVA:
                 ViewAlumnos view = new ViewAlumnos();
+                view.Con = con;
                 this.Hide();
                 view.Visible = true;
-
             }
             else
             {
@@ -34,6 +35,11 @@ namespace Biblioteca
             }
             query.closeReader();
 
+        }
+
+        private void salir(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void cargarUsuario()
