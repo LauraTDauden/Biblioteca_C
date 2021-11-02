@@ -213,6 +213,7 @@ namespace Biblioteca
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGrid);
             this.Name = "ViewAlumnos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alumnos";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.panel1.ResumeLayout(false);
