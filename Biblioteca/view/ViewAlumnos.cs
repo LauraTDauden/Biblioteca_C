@@ -68,5 +68,6 @@ namespace Biblioteca
                     + "OR apellido2 LIKE '" + texto + "%'", con.Con);
             new Table(query.Command, dataGrid);
         }
+
     }
 }

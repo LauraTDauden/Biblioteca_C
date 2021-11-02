@@ -21,12 +21,16 @@ namespace Biblioteca
             if (validar())
             {
                 MessageBox.Show("CORRECTO");
+                
+                //PARA OCULTAR UNA VISTA Y MOSTRAR OTRA NUEVA:
                 ViewAlumnos view = new ViewAlumnos();
+                this.Hide();
+                view.Visible = true;
 
             }
             else
             {
-                MessageBox.Show("USUARIO Y/O CONTRASEÑA INCORRECTOS");
+                MessageBox.Show("El usuario y/o contraseña introducidos no son correctos, pruebe de nuevo.");
             }
             query.closeReader();
 

@@ -11,6 +11,7 @@ namespace Biblioteca
 {
     class Connect
     {
+        //CAMBIAR LOS DATOS PARA LA BASE DE DATOS LOCAL DE CADA UNO
         string connectionString = "datasource = localhost; database = dad_biblioteca; port = 3306; username = root; password = admin1234";
         MySqlConnection con;
         public Connect()
