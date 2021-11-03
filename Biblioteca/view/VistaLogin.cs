@@ -7,11 +7,10 @@ namespace Biblioteca
     public partial class VistaLogin : Form
     {
         Queries query;
-        Connect con;
         Usuario usuario;
         public VistaLogin()
         {
-            con = new Connect();
+            Connect.getCon();
             InitializeComponent();
             button_login.Click += new System.EventHandler(this.login);
             button_salir.Click += new System.EventHandler(this.salir);
@@ -25,7 +24,6 @@ namespace Biblioteca
                 
                 //PARA OCULTAR UNA VISTA Y MOSTRAR OTRA NUEVA:
                 ViewAlumnos view = new ViewAlumnos();
-                view.Con = con;
                 this.Hide();
                 view.Visible = true;
             }
@@ -55,7 +53,7 @@ namespace Biblioteca
             query = new Queries();
             //var sql = "SELECT * FROM usuarios WHERE usuario = '" + usuario.nombreUsuario + "' and clave = '" + usuario.clave + "'";
             var sql = "SELECT * FROM usuarios WHERE usuario = @usuario and clave = @clave";
-            query.createCommand(sql, con.Con);
+            query.createCommand(sql, Connect.getCon());
             query.Command.Parameters.AddWithValue("@usuario", usuario.nombreUsuario);
             query.Command.Parameters.AddWithValue("@clave", usuario.clave); 
             query.Reader = query.Command.ExecuteReader();

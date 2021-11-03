@@ -13,9 +13,6 @@ namespace Biblioteca
     public partial class ViewAlumnos : Form
     {
         Queries query;
-        Connect con;
-
-        internal Connect Con { get => con; set => con = value; }
 
         public ViewAlumnos()
         {
@@ -52,7 +49,7 @@ namespace Biblioteca
             if (string.IsNullOrWhiteSpace(textBox_buscar.Text))
             {
                 query = new Queries();
-                query.createCommand("SELECT * FROM alumnos", Con.Con);
+                query.createCommand("SELECT * FROM alumnos", Connect.getCon());
             }
             else
             {
@@ -60,7 +57,7 @@ namespace Biblioteca
                 query.createCommand("SELECT * FROM alumnos WHERE dni LIKE '" + texto + "%'"
                     + "OR nombre LIKE '" + texto + "%'"
                     + "OR apellido1 LIKE '" + texto + "%'"
-                    + "OR apellido2 LIKE '" + texto + "%'", Con.Con);
+                    + "OR apellido2 LIKE '" + texto + "%'", Connect.getCon());
             }
             new Table(query.Command, dataGrid);
         }
@@ -72,7 +69,7 @@ namespace Biblioteca
             query.createCommand("SELECT * FROM alumnos WHERE dni LIKE '" + texto + "%'"
                     + "OR nombre LIKE '" + texto + "%'"
                     + "OR apellido1 LIKE '" + texto + "%'"
-                    + "OR apellido2 LIKE '" + texto + "%'", Con.Con);
+                    + "OR apellido2 LIKE '" + texto + "%'", Connect.getCon());
             new Table(query.Command, dataGrid);
         }
 
